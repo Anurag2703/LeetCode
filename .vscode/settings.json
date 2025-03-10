@@ -65,6 +65,7 @@
     "array": "cpp",
     "initializer_list": "cpp",
     "utility": "cpp",
-    "17_": "cpp"
+    "17_": "cpp",
+    "tuple": "cpp"
   }
 }
