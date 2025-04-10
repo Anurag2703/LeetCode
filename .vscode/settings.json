@@ -68,5 +68,8 @@
     "17_": "cpp",
     "tuple": "cpp",
     "unordered_map": "cpp"
-  }
+  },
+  "cSpell.words": [
+    "Shinobi"
+  ]
 }
