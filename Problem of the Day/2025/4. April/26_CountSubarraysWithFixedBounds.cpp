@@ -2,16 +2,29 @@
 
 class Solution {
     public:
-        long long countSubarrays(vector<int>& nums, int minK, int maxK) {
-            long count = 0;
-            for (int i = 0; i < nums.size(); i++) {
-                int mini = INT_MAX, maxi = INT_MIN;
-                for (int j = i; j < nums.size(); j++) {
-                    mini = min(mini, nums[j]);
-                    maxi = max(maxi, nums[j]);
-                    if (mini == minK && maxi == maxK) ++count;
+        static long long countSubarrays(vector<int>& nums, int minK, int maxK) {
+            long long ans=0;
+            int maxi=-1, mini=-1;
+            int s=nums.size();
+            for(int r=0, l=0; r<s; r++){
+                const int x=nums[r];
+                if (x<minK ||x>maxK){// x exceeds the bound
+                    l=r+1; // move l to r+1
+                    continue;
                 }
+                if (x==maxK) maxi=r; // position for maxK
+                if (x==minK) mini=r; // position for minK
+                ans+=max((min(maxi, mini)-l+1),0);
             }
-            return count;
+            return ans;
         }
 };
+
+
+auto init = []()
+{ 
+    ios::sync_with_stdio(0);
+    cin.tie(0);
+    cout.tie(0);
+    return 'c';
+}();
